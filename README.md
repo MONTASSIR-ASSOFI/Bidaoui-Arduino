@@ -33,9 +33,40 @@ int incomingByte = 0; // for incoming serial data
 ## Structure d'un câble USB
 
 ####  Un câble USB standard contient 4 à 5 fils, selon la version :
-
-<img src="image_2025-03-12_075322231.png" width="400" height="300">
-
+<table>
+    <tr>
+        <td><img src="image_2025-03-12_075322231.png" alt="Schéma Arduino" width="400"></td>
+        <td>
+            <table >
+                    <tr>
+                        <th>Fil</th>
+                        <th>Couleur</th>
+                        <th>Fonction</th>
+                    </tr>
+                    <tr>
+                        <td><code>VCC (5V)</code></td>
+                        <td>Rouge</td>
+                        <td>Alimentation (5V DC)</td>
+                    </tr>
+                    <tr>
+                        <td><code>D+</code></td>
+                        <td>Vert</td>
+                        <td>Transmission de données</td>
+                    </tr>
+                    <tr>
+                        <td><code>D-</code></td>
+                        <td>Blanc</td>
+                        <td>Réception de données</td>
+                    </tr>
+                    <tr>
+                        <td><code>GND</code></td>
+                        <td>Noir</td>
+                        <td>Masse électrique</td>
+                    </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 |  Fil|   Couleur   |     Fonction            |
 | :-------- | :------- | :------------------------- |
@@ -43,3 +74,4 @@ int incomingByte = 0; // for incoming serial data
 | `D+` | Vert |Transmission de données|
 | `D-` | Blanc |		Réception de données|
 | `GND` | Noir |Masse électrique|
+<img src="image_2025-03-12_075322231.png" width="400" height="300">
