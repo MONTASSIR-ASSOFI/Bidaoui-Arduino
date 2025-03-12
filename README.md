@@ -22,4 +22,5 @@ int incomingByte = 0; // for incoming serial data
     }
 ```
 
-[library I/O ports](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) - serial io library 
+[library I/O ports](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) - serial io library
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&psig=AOvVaw1VN9wnfoxS79S2qvwuLQ4D&ust=1741833845986000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKjpyZXEg4wDFQAAAAAdAAAAABAZ" width="150">
