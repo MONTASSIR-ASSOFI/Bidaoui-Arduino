@@ -30,32 +30,16 @@ int incomingByte = 0; // for incoming serial data
 <img src="image_2025-03-12_050647562.png" width="400" height="300">
 <div>
 
+## Structure d'un câble USB
 
-# Structure d'un câble USB
+####  Un câble USB standard contient 4 à 5 fils, selon la version :
 
-Le câble USB est constitué de plusieurs composants qui assurent sa fonctionnalité, y compris l'alimentation et la transmission de données. Voici la structure typique d'un câble USB :
+<img src="image_2025-03-12_075322231.png" width="400" height="300">
 
-## Tableau de structure
 
-| Composant                | Couleur des fils | Fonction                                       |
-|--------------------------|-----------------|-----------------------------------------------|
-| **Gaine extérieure**      |  | Isolation et protection contre l'usure et la chaleur |
-| **Blindage (Shielding)**  |                | Réduction des bruits et interférences         |
-| **Fil d'alimentation + (Vcc)** |  Rouge            | Fournit l'alimentation pour le périphérique    |
-| **Fil d'alimentation - (GND)** | Noir             | Sert de référence de masse                    |
-| **Fil de données (D+)**   |Vert             | Utilisé pour la transmission des données      |
-| **Fil de données (D-)**   | Blanc            | Utilisé pour la transmission des données      |
-
-## Fonctionnement général
-
-- **Alimentation** : Les fils Vcc (rouge) et GND (noir) sont utilisés pour fournir l'alimentation nécessaire au périphérique USB.
-- **Transmission de données** : Les fils D+ (vert) et D- (blanc) sont utilisés pour l'échange de données entre les appareils connectés.
-- **Protection** : Le blindage protège les fils internes contre les interférences électromagnétiques et garantit la stabilité du signal.
-
-## Types de connecteurs USB
-
-Le câble USB peut avoir différents types de connecteurs selon le modèle utilisé, tels que :
-- **USB-A**
-- **USB-B**
-- **USB-C**
-- **Micro-USB**
+|  Fil|   Couleur   |     Fonction            |
+| :-------- | :------- | :------------------------- |
+| `VCC (5V)` | Rouge  |Alimentation (5V DC) |
+| `D+` | Vert |Transmission de données|
+| `D-` | Blanc |		Réception de données|
+| `GND` | Noir |Masse électrique|
