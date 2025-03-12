@@ -26,8 +26,8 @@ int incomingByte = 0; // for incoming serial data
 
 ### Convertisseurs USB-UART :
 <div>
-<img src="image_2025-03-12_044107297.png" width="500" height="300">
-<img src="image_2025-03-12_050647562.png" width="500" height="300">
+<img src="image_2025-03-12_044107297.png" width="400" height="300">
+<img src="image_2025-03-12_050647562.png" width="400" height="300">
 <div>
 
 
@@ -37,14 +37,14 @@ Le câble USB est constitué de plusieurs composants qui assurent sa fonctionnal
 
 ## Tableau de structure
 
-| Composant                | Description                                      | Couleur des fils | Fonction                                       |
-|--------------------------|--------------------------------------------------|------------------|-----------------------------------------------|
-| **Gaine extérieure**      | Protection contre les dommages physiques et EMI  | -                | Isolation et protection contre l'usure et la chaleur |
-| **Blindage (Shielding)**  | Couche en aluminium ou cuivre pour éviter les interférences électromagnétiques (EMI) | -                | Réduction des bruits et interférences         |
-| **Fil d'alimentation + (Vcc)** | Fil pour l'alimentation en tension positive (5V)  | Rouge            | Fournit l'alimentation pour le périphérique    |
-| **Fil d'alimentation - (GND)** | Fil de masse (retour de courant)                  | Noir             | Sert de référence de masse                    |
-| **Fil de données (D+)**   | Fil de transmission de données (ligne positive)  | Vert             | Utilisé pour la transmission des données      |
-| **Fil de données (D-)**   | Fil de transmission de données (ligne négative)  | Blanc            | Utilisé pour la transmission des données      |
+| Composant                | Couleur des fils | Fonction                                       |
+|--------------------------|-----------------|-----------------------------------------------|
+| **Gaine extérieure**      |  | Isolation et protection contre l'usure et la chaleur |
+| **Blindage (Shielding)**  |                | Réduction des bruits et interférences         |
+| **Fil d'alimentation + (Vcc)** |  Rouge            | Fournit l'alimentation pour le périphérique    |
+| **Fil d'alimentation - (GND)** | Noir             | Sert de référence de masse                    |
+| **Fil de données (D+)**   |Vert             | Utilisé pour la transmission des données      |
+| **Fil de données (D-)**   | Blanc            | Utilisé pour la transmission des données      |
 
 ## Fonctionnement général
 
