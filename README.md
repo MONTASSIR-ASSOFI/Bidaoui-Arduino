@@ -21,3 +21,5 @@ int incomingByte = 0; // for incoming serial data
       }
     }
 ```
+
+[library I/O ports](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) - serial io library 
