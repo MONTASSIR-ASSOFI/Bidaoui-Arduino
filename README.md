@@ -1,78 +1,16 @@
 # Bidaoui-Arduino
-learning programming Arduino with C# forms
+#### seril communication between computer and arduino :
 
 <div>
 <img src="image_2025-03-12_093532126.png" width="700" height="350">
 
 <div>
 
-Code C# (WinForms) :
-```
-using System;
-using System.IO.Ports;
-using System.Windows.Forms;
-
-namespace ArduinoControl
-{
-    public partial class Form1 : Form
-    {
-        SerialPort serialPort = new SerialPort("COM3", 9600); // Remplace COM3 par le bon port
-
-        public Form1()
-        {
-            InitializeComponent();
-            serialPort.Open();  // Ouvre la connexion série
-        }
-
-        private void btnOn_Click(object sender, EventArgs e)
-        {
-            serialPort.Write("1");  // Envoie '1' pour allumer la LED
-        }
-
-        private void btnOff_Click(object sender, EventArgs e)
-        {
-            serialPort.Write("0");  // Envoie '0' pour éteindre la LED
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (serialPort.IsOpen)
-                serialPort.Close();  // Ferme le port série à la fermeture du programme
-        }
-    }
-}
-
-```
-Code arduino : 
-```
-int ledPin = 13;  // LED sur la broche 13
-char command;  
-
-void setup() {
-    pinMode(ledPin, OUTPUT);
-    Serial.begin(9600);  // Communication série avec le PC
-}
-
-void loop() {
-    if (Serial.available() > 0) {  // Vérifie si une commande est reçue
-        command = Serial.read();  // Lit la commande
-        if (command == '1') {
-            digitalWrite(ledPin, HIGH);  // Allumer la LED
-        } else if (command == '0') {
-            digitalWrite(ledPin, LOW);   // Éteindre la LED
-        }
-    }
-}
-
-```
-
-[library I/O ports](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) - serial io library
-
 
 
 ## Structure d'un câble USB
 
-####  Un câble USB standard contient 4 à 5 fils, selon la version :
+####  USB cable Wires :
 <table>
     <tr>
         <td><img src="image_2025-03-12_075322231.png" alt="Schéma Arduino" width="400"></td>
@@ -109,8 +47,101 @@ void loop() {
 </table>
 
 
-### Convertisseurs USB-UART :
+## Convertisseurs USB-UART :
+### A USB-to-Serial chip (e.g., CH340, FTDI, ATmega16U2) converts UART signals into USB.
 <div>
 <img src="image_2025-03-12_044107297.png" width="400" height="300">
 <img src="image_2025-03-12_050647562.png" width="400" height="300">
 <div>
+. The Arduino uses UART to send data (TX/RX).
+
+## Code C# (WinForms) :
+```
+using System;
+using System.IO.Ports;
+using System.Windows.Forms;
+
+namespace ArduinoControl
+{
+    public partial class Form1 : Form
+    {
+        SerialPort serialPort = new SerialPort("COM3", 9600); 
+
+        public Form1()
+        {
+            InitializeComponent();
+            serialPort.Open();  
+        }
+
+        private void btnOn_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("1");  
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("0");  
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (serialPort.IsOpen)
+                serialPort.Close();  
+        }
+    }
+}
+
+```
+## Code arduino : 
+```
+int ledPin = 13;  
+char command;  
+
+void setup() {
+    pinMode(ledPin, OUTPUT);
+    Serial.begin(9600);  
+}
+
+void loop() {
+    if (Serial.available() > 0) {  
+        command = Serial.read();  
+        if (command == '1') {
+            digitalWrite(ledPin, HIGH);  
+        } else if (command == '0') {
+            digitalWrite(ledPin, LOW);   
+        }
+    }
+}
+
+```
+
+- [library I/O ports](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) - serial port communication in C# using the .NET framework.
+- [library serial arduino](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) -communication between the Arduino board and a computer or other devices.
+
+## test for select color RGB and send to Arduino :
+
+```
+private Color selectedColor;
+
+    private void BtnChooseColor_Click(object sender, EventArgs e)
+    {
+        ColorDialog colorDialog = new ColorDialog();
+        if (colorDialog.ShowDialog() == DialogResult.OK)
+        {
+            selectedColor = colorDialog.Color;
+            lblColor.BackColor = selectedColor;
+            lblRGB.Text = $"RGB: {selectedColor.R}, {selectedColor.G}, {selectedColor.B}";
+        }
+    }
+
+    private void BtnSend_Click(object sender, EventArgs e)
+    {
+        if (!serialPort.IsOpen)
+            serialPort.Open();
+
+        string data = $"{selectedColor.R},{selectedColor.G},{selectedColor.B}\n";
+        serialPort.WriteLine(data);
+        MessageBox.Show("Données envoyées: " + data);
+    }
+```
+
