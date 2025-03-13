@@ -49,11 +49,13 @@
 
 ## Convertisseurs USB-UART :
 ### A USB-to-Serial chip (e.g., CH340, FTDI, ATmega16U2) converts UART signals into USB.
+
 <div>
 <img src="image_2025-03-12_044107297.png" width="400" height="300">
 <img src="image_2025-03-12_050647562.png" width="400" height="300">
 <div>
 . The Arduino uses UART to send data (TX/RX).
+    
 ## test send 1-0 from computer to Arduino
 ### Code C# (WinForms) :
 ```
