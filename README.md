@@ -150,29 +150,35 @@ private Color selectedColor;
 ```
 #include <Arduino.h>
 
-int redPin = 9;
-int greenPin = 10;
-int bluePin = 11;
-
+int r = 3 ;
+int g = 5 ;
+int b =10;
+int red, green, blue;
 void setup() {
   Serial.begin(9600);
-  pinMode(redPin, OUTPUT);
-  pinMode(greenPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);
+  pinMode(r,OUTPUT);
+   pinMode(g,OUTPUT);
+   pinMode(b,OUTPUT);
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    String data = Serial.readStringUntil('\n');  // Lire jusqu'à "\n"
-    int r, g, b;
-    sscanf(data.c_str(), "%d,%d,%d", &r, &g, &b);
+  if (Serial.available()) {
+    String data = Serial.readString(); // Lire les données
+    int index = 0;
+    
+    for (int i = 0; i < data.length(); i++) {
+      if (data[i] == ',') { 
+        data[i] = ' '; // Remplace les virgules par des espaces pour la conversion
+      }
+    }
 
-    analogWrite(redPin, r);
-    analogWrite(greenPin, g);
-    analogWrite(bluePin, b);
-
-    Serial.print("LED RGB: ");
-    Serial.println(data);
+    sscanf(data.c_str(), "%d %d %d", &red, &green, &blue);
+    analogWrite(r,red);
+    analogWrite(g,green);
+    analogWrite(b,blue);
+    Serial.print("R: "); Serial.print(red);
+    Serial.print(" G: "); Serial.print(green);
+    Serial.print(" B: "); Serial.println(blue);
   }
 }
 
