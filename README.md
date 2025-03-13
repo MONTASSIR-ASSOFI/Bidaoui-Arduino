@@ -119,7 +119,7 @@ void loop() {
 - [library serial arduino](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport?view=net-9.0-pp) -communication between the Arduino board and a computer or other devices.
 
 ## test for select color RGB and send to Arduino :
-
+### Code C# (WinForms) :
 ```
 private Color selectedColor;
 
@@ -144,4 +144,34 @@ private Color selectedColor;
         MessageBox.Show("Données envoyées: " + data);
     }
 ```
+### Code Arduino :
+```
+#include <Arduino.h>
 
+int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String data = Serial.readStringUntil('\n');  // Lire jusqu'à "\n"
+    int r, g, b;
+    sscanf(data.c_str(), "%d,%d,%d", &r, &g, &b);
+
+    analogWrite(redPin, r);
+    analogWrite(greenPin, g);
+    analogWrite(bluePin, b);
+
+    Serial.print("LED RGB: ");
+    Serial.println(data);
+  }
+}
+
+```
